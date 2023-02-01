@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cinema{% endblock %}
+
+{% block body %}
+    <h1>Cinema</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cinema.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cinema.nom }}</td>
+            </tr>
+            <tr>
+                <th>Synopsis</th>
+                <td>{{ cinema.synopsis }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ cinema.type }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ cinema.createdAt ? cinema.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cinema_index') }}">back to list</a>
+
+    <a href="{{ path('app_cinema_edit', {'id': cinema.id}) }}">edit</a>
+
+    {{ include('cinema/_delete_form.html.twig') }}
+{% endblock %}

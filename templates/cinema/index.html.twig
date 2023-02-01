@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cinema index{% endblock %}
+
+{% block body %}
+    {# <h1>Cinema index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Synopsis</th>
+                <th>Type</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cinema in cinemas %}
+            <tr>
+                <td>{{ cinema.id }}</td>
+                <td>{{ cinema.nom }}</td>
+                <td>{{ cinema.synopsis }}</td>
+                <td>{{ cinema.type }}</td>
+                <td>{{ cinema.createdAt ? cinema.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_cinema_show', {'id': cinema.id}) }}">show</a>
+                    <a href="{{ path('app_cinema_edit', {'id': cinema.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cinema_new') }}">Create new</a> #}
+<div class="content">
+    <div class="container mt-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 mb-5">
+                    <h1 class="text-center">Bienvenue</h1>
+                </div>
+        <div class="row">
+            {% for cinema in cinemas %}
+                <div class="card m-2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cinema.nom }}</h5>
+                        <p class="card-text">{{ cinema.synopsis }}</p>
+                        <p class="card-subtitle mb-2 text-muted">{{ cinema.type }}</p>
+                        <p class="card-subtitle mb-2 text-muted">{{ cinema.createdAt ? cinema.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+                        <a href="{{ path('app_cinema_show', {'id': cinema.id}) }}" class="btn btn-primary">Voir</a>
+                        <a href="{{ path('app_cinema_edit', {'id': cinema.id}) }}" class="btn btn-primary">Modifier</a>
+                    </div>
+                </div>
+                {% else %}
+                    <div class="col-12">
+                        <p class="text-center">Aucun film</p>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
